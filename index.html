@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test - INU2101 Inglés Básico II</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5em;
+        }
+
+        .section-subtitle {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #667eea;
+            border-left: 4px solid #667eea;
+            margin: 25px 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+        }
+
+        .info-box li {
+            margin: 8px 0;
+        }
+
+        .student-info {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0 30px 0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .student-info label {
+            display: block;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .student-info input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .student-info input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .audio-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .audio-container p {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .play-counter {
+            text-align: center;
+            font-weight: bold;
+            color: #666;
+            margin-top: 10px;
+            padding: 8px;
+            background: #e3f2fd;
+            border-radius: 5px;
+        }
+
+        .play-counter.warning {
+            color: #d32f2f;
+            background: #ffebee;
+        }
+
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .option-label:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .reading-text {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #764ba2;
+            line-height: 1.8;
+        }
+
+        .reading-text h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        .reading-text h4 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+        }
+
+        .reading-text p {
+            margin: 10px 0;
+        }
+
+        .writing-container {
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 250px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .word-counter {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f5f5f5;
+        }
+
+        .word-counter.sufficient {
+            color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .word-counter.insufficient {
+            color: #f44336;
+            background: #ffebee;
+        }
+
+        .email-button {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(33,150,243,0.3);
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        .email-button:hover {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            box-shadow: 0 6px 20px rgba(33,150,243,0.4);
+            transform: translateY(-2px);
+        }
+
+        .rubric-section {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 3px solid #4caf50;
+        }
+
+        .rubric-title {
+            color: #4caf50;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .rubric-criterion {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .rubric-criterion h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .criterion-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .criterion-options label {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .criterion-options label:hover {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .criterion-options input[type="radio"] {
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            min-width: 18px;
+            flex-shrink: 0;
+        }
+
+        .criterion-description {
+            flex: 1;
+        }
+
+        .criterion-description strong {
+            display: block;
+            color: #2e7d32;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .criterion-description p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .manual-override-section {
+            border-color: #2196f3;
+            margin-top: 40px;
+        }
+
+        .manual-override-section .rubric-title {
+            color: #2196f3;
+        }
+
+        .manual-scores-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .manual-scores-grid label {
+            display: block;
+            font-weight: bold;
+            color: #2196f3;
+            margin-bottom: 8px;
+        }
+
+        .manual-scores-grid input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .clear-manual-button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 28px;
+        }
+
+        .clear-manual-button:hover {
+            background: #f57c00;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(76,175,80,0.3);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            box-shadow: 0 6px 20px rgba(76,175,80,0.4);
+            transform: translateY(-2px);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(76,175,80,0.3);
+        }
+
+        .results-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 3px solid #4caf50;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .results-container h2 {
+            color: #4caf50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-summary {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .score-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .score-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .score-value {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .score-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            margin-top: 15px;
+            border-top: 2px solid #4caf50;
+            font-size: 1.2em;
+        }
+
+        .final-grade {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .grade-label {
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .grade-value {
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        .feedback-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ddd;
+        }
+
+        .feedback-item.correct {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .feedback-item.incorrect {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .feedback-item.partial {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        .feedback-question {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .feedback-answer {
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .correct-answer {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .note-banner {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .recovery-banner {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .recovery-banner button {
+            background: white;
+            color: #4caf50;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .recovery-banner button:hover {
+            background: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+                padding: 12px 15px;
+            }
+
+            .section-subtitle {
+                font-size: 1em;
+            }
+
+            .rubric-criterion h4 {
+                font-size: 1em;
+                line-height: 1.4;
+            }
+
+            .criterion-options label {
+                padding: 10px 8px;
+            }
+
+            .criterion-description strong {
+                font-size: 0.9em;
+            }
+
+            .criterion-description p {
+                font-size: 0.85em;
+            }
+
+            .manual-scores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-button {
+                padding: 15px 20px;
+                font-size: 1.1em;
+            }
+
+            audio {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Mock Test</h1>
+        <h2>INU2101 - Inglés Básico II</h2>
+
+        <div class="info-box">
+            <h3>📋 General Instructions</h3>
+            <ul>
+                <li><strong>Total time:</strong> 60 minutes (approximately)</li>
+                <li><strong>Total points:</strong> 36 points (12 Listening + 12 Reading + 12 Writing)</li>
+                <li><strong>Passing grade:</strong> 60% (22 points) = 4.0</li>
+                <li><strong>Audio limit:</strong> You can listen to each audio 2 times maximum</li>
+                <li><strong>Auto-save:</strong> Your answers are saved automatically</li>
+                <li><strong>Important:</strong> Read all instructions carefully before starting</li>
+            </ul>
+        </div>
+
+        <!-- STUDENT NAME -->
+        <div class="student-info">
+            <label for="studentName">👤 Student Full Name:</label>
+            <input type="text" id="studentName" placeholder="Enter your full name" required>
+        </div>
+
+        <!-- ===== I. LISTENING SECTION ===== -->
+        <h2 class="section-title">🎧 I. Listening Comprehension (12 points)</h2>
+
+        <div class="info-box">
+            <h3>📢 Listening Instructions</h3>
+            <ul>
+                <li>You will hear TWO audio recordings</li>
+                <li>You can listen to each audio <strong>2 times MAXIMUM</strong></li>
+                <li>Read the questions BEFORE listening to the audio</li>
+                <li>Take notes while listening if necessary</li>
+            </ul>
+        </div>
+
+        <!-- LISTENING PART A -->
+        <h3 class="section-subtitle">Part A: Apartment Rental (6 points)</h3>
+
+        <p style="margin: 15px 0;"><strong>Instructions:</strong> Listen to a phone conversation between a real estate agent and a man looking for an apartment. Then answer TRUE or FALSE. If FALSE, correct the information. (1 point for TRUE/FALSE + 1 point for correction = 2 points each)</p>
+
+        <div class="audio-container">
+            <p>🔊 Audio - Part A</p>
+            <audio id="audioA" controls preload="metadata" playsinline>
+                <source src="https://github.com/Moncholate/Mock-ET-INU2101/raw/refs/heads/main/Listening%20A.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="play-counter" id="counterA">Plays: 0 / 2</div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">1. The man needs a studio apartment.</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q1" value="true">
+                    <span>TRUE</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q1" value="false">
+                    <span>FALSE</span>
+                </label>
+            </div>
+            <p style="margin-top: 10px; font-weight: 600;">If FALSE, write the correction:</p>
+            <input type="text" id="correction1" placeholder="Write your correction here (if FALSE)">
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. There is a balcony in the apartment.</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q2" value="true">
+                    <span>TRUE</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q2" value="false">
+                    <span>FALSE</span>
+                </label>
+            </div>
+            <p style="margin-top: 10px; font-weight: 600;">If FALSE, write the correction:</p>
+            <input type="text" id="correction2" placeholder="Write your correction here (if FALSE)">
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. The rent includes water and internet.</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q3" value="true">
+                    <span>TRUE</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q3" value="false">
+                    <span>FALSE</span>
+                </label>
+            </div>
+            <p style="margin-top: 10px; font-weight: 600;">If FALSE, write the correction:</p>
+            <input type="text" id="correction3" placeholder="Write your correction here (if FALSE)">
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. The rent is $815 per month.</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q4" value="true">
+                    <span>TRUE</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q4" value="false">
+                    <span>FALSE</span>
+                </label>
+            </div>
+            <p style="margin-top: 10px; font-weight: 600;">If FALSE, write the correction:</p>
+            <input type="text" id="correction4" placeholder="Write your correction here (if FALSE)">
+        </div>
+
+        <!-- LISTENING PART B -->
+        <h3 class="section-subtitle">Part B: Emma's Vacation (6 points)</h3>
+
+        <p style="margin: 15px 0;"><strong>Instructions:</strong> Listen to a phone conversation between Emma and her friend David. Then choose the best answer for each question. (1 point each = 6 points total)</p>
+
+        <div class="audio-container">
+            <p>🔊 Audio - Part B</p>
+            <audio id="audioB" controls preload="metadata" playsinline>
+                <source src="https://github.com/Moncholate/Mock-ET-INU2101/raw/refs/heads/main/Listening%20B.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="play-counter" id="counterB">Plays: 0 / 2</div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">1. Where is Emma now?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q5" value="a">
+                    <span>a) In Peru</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q5" value="b">
+                    <span>b) At home in Boston</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q5" value="c">
+                    <span>c) At a hotel</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q5" value="d">
+                    <span>d) At the airport</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. What did they do after arriving yesterday?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q6" value="a">
+                    <span>a) They went to a restaurant</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q6" value="b">
+                    <span>b) They visited a museum</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q6" value="c">
+                    <span>c) They unpacked their suitcases</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q6" value="d">
+                    <span>d) They went to bed early</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. What did Emma have for breakfast today?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q7" value="a">
+                    <span>a) Coffee and bread</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q7" value="b">
+                    <span>b) Eggs, toast, orange juice, and fruit</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q7" value="c">
+                    <span>c) Yogurt and cereal</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q7" value="d">
+                    <span>d) Pancakes and coffee</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. When did they arrive in Lima?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q8" value="a">
+                    <span>a) Last week on Friday</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q8" value="b">
+                    <span>b) Yesterday</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q8" value="c">
+                    <span>c) Two weeks ago on Monday</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q8" value="d">
+                    <span>d) Last Thursday</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">5. How long did they stay in Lima?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q9" value="a">
+                    <span>a) One day</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q9" value="b">
+                    <span>b) Two days</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q9" value="c">
+                    <span>c) One week</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q9" value="d">
+                    <span>d) Three days</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">6. What did Sarah do every day in Lima?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q10" value="a">
+                    <span>a) She bought souvenirs</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q10" value="b">
+                    <span>b) She took photos</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q10" value="c">
+                    <span>c) She went swimming</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q10" value="d">
+                    <span>d) She wrote postcards</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ===== II. READING SECTION ===== -->
+        <h2 class="section-title">📖 II. Reading Comprehension (12 points)</h2>
+
+        <!-- READING PART A -->
+        <h3 class="section-subtitle">Part A: A Day at the Animal Center (6 points)</h3>
+
+        <div class="reading-text">
+            <h3>A Day at the Animal Center</h3>
+            <p><strong>Marina Torres</strong><br><em>Posted: Saturday, December 2nd</em></p>
+            
+            <p>Hi everyone! 👋</p>
+            
+            <p>I'm Marina, a 20-year-old student, and I work at "Happy Paws Animal Center" every weekend. Today is a very busy day here, so I wanted to share what's happening!</p>
+            
+            <h4>My Typical Weekend:</h4>
+            <p>On normal Saturdays, I arrive at the center at 9 AM. I usually start by giving food to the dogs and cats. Then I clean their rooms and change their water bowls. After that, I take the dogs for walks in the park. In the afternoon, I play with the cats and take care of them. Before leaving, I organize the dog and cat food and clean the floors. I finish around 4 PM and then I meet my friends for coffee.</p>
+            
+            <h4>Today is Different:</h4>
+            <p>Right now, it's 2 PM and I'm still here! Today we're having an Adoption Day, so everything is different. I'm not wearing my regular jeans and t-shirt. Today I'm wearing the center's special green jacket with our name on it. I'm not cleaning rooms today. I'm showing the animals to families who want to take them home. I'm answering questions about the pets and writing information on papers.</p>
+            
+            <p>The center is full of visitors! We have balloons and decorations in every room. My boss is giving talks about pet care every hour. We're also selling cakes and cookies to get money for the center.</p>
+            
+            <h4>What I'm Not Doing Today:</h4>
+            <p>I'm not walking the dogs in the park today because we need all the animals here for people to see. I'm also not going to meet my friends this afternoon. The adoption day ends at 6 PM, so I'm staying two hours more than usual.</p>
+            
+            <h4>Why I Love This Work:</h4>
+            <p>Working at the center makes me happy. I love spending time with animals, and I learn a lot about taking care of them. The best part? When an animal gets a new home! Today, three dogs and two cats have new families now. 😊</p>
+            
+            <p>Okay, I need to go back to work now. There's a family looking at our puppy Max!</p>
+        </div>
+
+        <p style="margin: 20px 0; font-weight: 600;"><strong>Instructions:</strong> Read the text "A Day at the Animal Center" and answer the questions below (1 to 4). Provide complete and clear information to show that you understand what you read. (6 points)</p>
+
+        <div class="question">
+            <p class="question-text">1. Describe Marina's typical Saturday routine at the center. Mention at least three activities. (2 points)</p>
+            <input type="text" id="reading1" placeholder="Write your answer here">
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. How is Marina's appearance different today? Explain what she usually wears and what she's wearing now. (2 points)</p>
+            <input type="text" id="reading2" placeholder="Write your answer here">
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. What is Marina doing right now at 2 PM? (1 point)</p>
+            <input type="text" id="reading3" placeholder="Write your answer here">
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. Why isn't Marina walking the dogs in the park today? (1 point)</p>
+            <input type="text" id="reading4" placeholder="Write your answer here">
+        </div>
+
+        <!-- READING PART B -->
+        <h3 class="section-subtitle">Part B: Carlos Rivera's Life (6 points)</h3>
+
+        <div class="reading-text">
+            <h3>Carlos Rivera's Life</h3>
+            
+            <p>Carlos Rivera is 20 years old. He is from Valparaíso, Chile. He lives with his parents and his little sister in a small house near the beach. Carlos is a student at the university. He studies engineering because he wants to be a civil engineer. He wants to design big buildings and roads.</p>
+            
+            <p>Every day, Carlos wakes up at 6:30 AM. He takes the metro to the university. The trip takes 45 minutes. He has classes in the morning and sometimes in the afternoon too.</p>
+            
+            <p>On weekends, Carlos doesn't go to university. On Saturdays, he works at his uncle's restaurant in the city center. He helps in the kitchen and serves food to customers. He likes this job because he gets money and meets interesting people. On Sundays, Carlos usually stays at home. He does his homework, watches movies, and plays video games with his sister.</p>
+            
+            <p>In his free time, Carlos loves two things: playing soccer with his friends and going to the beach. Every Saturday afternoon, after work, he goes to the beach with his friends. They play soccer on the sand and swim in the ocean. Carlos is very good at soccer!</p>
+            
+            <p>Last summer, Carlos went on vacation with his best friend Diego. They traveled to the south of Chile for two weeks. They visited Puerto Montt, a beautiful city near the mountains and lakes. Carlos and Diego stayed in a small hotel in the center of the city. They had delicious seafood every day. They also went hiking in the national park and took many photos of the nature. It was an amazing trip!</p>
+            
+            <p>Carlos is happy with his life. He loves his family, enjoys his classes at the university, and has good friends. His dream is to finish his engineering degree and work on important projects in Chile.</p>
+        </div>
+
+        <p style="margin: 20px 0; font-weight: 600;"><strong>Instructions:</strong> Read the text "Carlos Rivera's Life" and answer the questions below (5 to 10). Choose the best answer. (6 points - 1 point each)</p>
+
+        <div class="question">
+            <p class="question-text">1. What is Carlos's career goal?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q11" value="a">
+                    <span>a) To be a restaurant manager</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q11" value="b">
+                    <span>b) To be a civil engineer</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q11" value="c">
+                    <span>c) To be a soccer player</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q11" value="d">
+                    <span>d) To be a teacher</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">2. How does Carlos travel to the university?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q12" value="a">
+                    <span>a) By bus</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q12" value="b">
+                    <span>b) By car</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q12" value="c">
+                    <span>c) By metro</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q12" value="d">
+                    <span>d) On foot</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">3. What does Carlos do on Saturday mornings?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q13" value="a">
+                    <span>a) He goes to the beach</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q13" value="b">
+                    <span>b) He does his homework</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q13" value="c">
+                    <span>c) He works at his uncle's restaurant</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q13" value="d">
+                    <span>d) He plays soccer with his friends</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">4. Where did Carlos go on vacation last summer?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q14" value="a">
+                    <span>a) To the beach in Valparaíso</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q14" value="b">
+                    <span>b) To Puerto Montt in the south of Chile</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q14" value="c">
+                    <span>c) To the north of Chile</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q14" value="d">
+                    <span>d) To another country</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">5. How long was Carlos's vacation?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q15" value="a">
+                    <span>a) One week</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q15" value="b">
+                    <span>b) Two weeks</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q15" value="c">
+                    <span>c) Three weeks</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q15" value="d">
+                    <span>d) One month</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p class="question-text">6. What does Carlos love doing in his free time?</p>
+            <div class="options">
+                <label class="option-label">
+                    <input type="radio" name="q16" value="a">
+                    <span>a) Playing soccer and going to the beach</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q16" value="b">
+                    <span>b) Cooking and reading books</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q16" value="c">
+                    <span>c) Studying and working</span>
+                </label>
+                <label class="option-label">
+                    <input type="radio" name="q16" value="d">
+                    <span>d) Traveling and taking photos</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ===== III. WRITING SECTION ===== -->
+        <h2 class="section-title">✍️ III. Writing (12 points)</h2>
+
+        <div class="info-box">
+            <h3>📝 Instructions</h3>
+            <p><strong>Write about your last birthday.</strong></p>
+            <p><strong>You must write at least 40 words.</strong></p>
+            <p><strong>Include information about:</strong></p>
+            <ul>
+                <li>📅 When and where you celebrated</li>
+                <li>🎉 What activities you did</li>
+                <li>👥 Who was with you</li>
+                <li>🍰 What food or drinks you had</li>
+            </ul>
+            <p><strong>Remember to:</strong></p>
+            <ul>
+                <li>Use past simple tense (was/were, had, did, went, ate, etc.)</li>
+                <li>Write complete sentences</li>
+                <li>Check your spelling and grammar</li>
+            </ul>
+        </div>
+
+        <div class="writing-container">
+            <textarea id="writingText" placeholder="Start writing here about your last birthday..." oninput="countWords()"></textarea>
+            <div class="word-counter" id="wordCount">Words: 0 / 40 minimum</div>
+        </div>
+
+        <button onclick="sendEmail()" class="email-button">
+            📧 Send Writing by Email
+        </button>
+
+        <!-- INTERACTIVE RUBRIC -->
+        <div class="rubric-section">
+            <h3 class="rubric-title">📊 Writing Rubric - Enter Scores from Professor</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                <em>After reading the student's text, select the appropriate level for each criterion.</em>
+            </p>
+
+            <!-- CRITERION 1 -->
+            <div class="rubric-criterion">
+                <h4>Criterion 1: Coherence and Length (4 points)</h4>
+                <div class="criterion-options">
+                    <label>
+                        <input type="radio" name="crit1" value="4">
+                        <div class="criterion-description">
+                            <strong>4 pts - Excellent</strong>
+                            <p>Coherent and well-organized text. Includes ALL required information (when/where, activities, people, food/drinks) with good details. 40+ words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit1" value="3">
+                        <div class="criterion-description">
+                            <strong>3 pts - Good</strong>
+                            <p>Mostly coherent. Includes all topics but with less detail. 35-39 words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit1" value="2">
+                        <div class="criterion-description">
+                            <strong>2 pts - Adequate</strong>
+                            <p>Some coherence problems OR missing one required topic. 30-34 words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit1" value="1">
+                        <div class="criterion-description">
+                            <strong>1 pt - Insufficient</strong>
+                            <p>Lacks coherence OR missing two+ topics. 20-29 words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit1" value="0">
+                        <div class="criterion-description">
+                            <strong>0 pts - Not Achieved</strong>
+                            <p>Incoherent or incomprehensible. Less than 20 words or doesn't address topic.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- CRITERION 2 -->
+            <div class="rubric-criterion">
+                <h4>Criterion 2: Vocabulary (3 points)</h4>
+                <div class="criterion-options">
+                    <label>
+                        <input type="radio" name="crit2" value="3">
+                        <div class="criterion-description">
+                            <strong>3 pts - Excellent</strong>
+                            <p>Uses 8+ different and appropriate vocabulary words (birthday, party, cake, celebrate, friends, family, restaurant, pizza, dancing, gifts, fun, happy, music, etc.)</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit2" value="2">
+                        <div class="criterion-description">
+                            <strong>2 pts - Good</strong>
+                            <p>Uses 6-7 different and appropriate vocabulary words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit2" value="1">
+                        <div class="criterion-description">
+                            <strong>1 pt - Adequate</strong>
+                            <p>Uses 4-5 different and appropriate vocabulary words.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit2" value="0">
+                        <div class="criterion-description">
+                            <strong>0 pts - Insufficient</strong>
+                            <p>Uses 3 or fewer vocabulary words, or vocabulary is mostly inappropriate/unclear.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- CRITERION 3 -->
+            <div class="rubric-criterion">
+                <h4>Criterion 3: Grammar (3 points)</h4>
+                <div class="criterion-options">
+                    <label>
+                        <input type="radio" name="crit3" value="3">
+                        <div class="criterion-description">
+                            <strong>3 pts - Excellent</strong>
+                            <p>0-1 grammar errors. Almost all sentences correct. Past simple used correctly.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit3" value="2">
+                        <div class="criterion-description">
+                            <strong>2 pts - Good</strong>
+                            <p>2-3 grammar errors. Most sentences correct, some mistakes with tenses/structure.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit3" value="1">
+                        <div class="criterion-description">
+                            <strong>1 pt - Adequate</strong>
+                            <p>4-5 grammar errors. Several problems but meaning mostly clear.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit3" value="0">
+                        <div class="criterion-description">
+                            <strong>0 pts - Insufficient</strong>
+                            <p>6+ grammar errors. Many sentences incorrect, meaning often unclear.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- CRITERION 4 -->
+            <div class="rubric-criterion">
+                <h4>Criterion 4: Spelling (2 points)</h4>
+                <div class="criterion-options">
+                    <label>
+                        <input type="radio" name="crit4" value="2">
+                        <div class="criterion-description">
+                            <strong>2 pts - Excellent</strong>
+                            <p>0-2 spelling errors. Almost all words spelled correctly.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit4" value="1">
+                        <div class="criterion-description">
+                            <strong>1 pt - Good</strong>
+                            <p>3-4 spelling errors. Most words correct, some mistakes.</p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="crit4" value="0">
+                        <div class="criterion-description">
+                            <strong>0 pts - Insufficient</strong>
+                            <p>5+ spelling errors. Many words misspelled.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- MANUAL SCORE OVERRIDE SECTION -->
+        <div class="rubric-section manual-override-section">
+            <h3 class="rubric-title">⚙️ Manual Score Adjustment (Optional)</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                <em>If there are errors in automatic grading, you can manually adjust the scores here. Leave blank to use automatic scores.</em>
+            </p>
+
+            <div class="manual-scores-grid">
+                <div>
+                    <label>🎧 Listening Manual Score (max 12):</label>
+                    <input type="number" id="manualListening" min="0" max="12" step="0.5" placeholder="Leave blank for automatic">
+                </div>
+
+                <div>
+                    <label>📖 Reading Manual Score (max 12):</label>
+                    <input type="number" id="manualReading" min="0" max="12" step="0.5" placeholder="Leave blank for automatic">
+                </div>
+
+                <div>
+                    <label>✍️ Writing Manual Score (max 12):</label>
+                    <input type="number" id="manualWriting" min="0" max="12" step="0.5" placeholder="Leave blank for automatic">
+                </div>
+
+                <div>
+                    <button onclick="clearManualScores()" class="clear-manual-button">
+                        🔄 Clear Manual Scores
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALCULATE BUTTON -->
+        <button class="submit-button" onclick="calculateFinalGrade()">
+            🎯 Calculate My Final Grade
+        </button>
+
+        <!-- RESULTS (hidden initially) -->
+        <div id="results" style="display: none;"></div>
+    </div>
+
+    <script>
+        // ===== AUTO-SAVE SYSTEM =====
+        const STORAGE_KEY = 'mocktest_inu2101_answers';
+
+        function saveAnswer(fieldId, value) {
+            let savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            savedData[fieldId] = value;
+            savedData.lastSaved = new Date().toISOString();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
+        }
+
+        function loadSavedAnswers() {
+            const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            if (Object.keys(savedData).length === 0) return false;
+
+            // Restore student name
+            if (savedData.studentName) {
+                document.getElementById('studentName').value = savedData.studentName;
+            }
+
+            // Restore radio buttons
+            for (let i = 1; i <= 16; i++) {
+                if (savedData[`q${i}`]) {
+                    const radio = document.querySelector(`input[name="q${i}"][value="${savedData[`q${i}`]}"]`);
+                    if (radio) radio.checked = true;
+                }
+            }
+
+            // Restore text inputs
+            ['correction1', 'correction2', 'correction3', 'correction4', 
+             'reading1', 'reading2', 'reading3', 'reading4', 
+             'writingText'].forEach(id => {
+                if (savedData[id]) {
+                    const elem = document.getElementById(id);
+                    if (elem) {
+                        elem.value = savedData[id];
+                        if (id === 'writingText') countWords();
+                    }
+                }
+            });
+
+            // Restore rubric selections
+            ['crit1', 'crit2', 'crit3', 'crit4'].forEach(name => {
+                if (savedData[name]) {
+                    const radio = document.querySelector(`input[name="${name}"][value="${savedData[name]}"]`);
+                    if (radio) radio.checked = true;
+                }
+            });
+
+            // Restore manual scores
+            ['manualListening', 'manualReading', 'manualWriting'].forEach(id => {
+                if (savedData[id]) {
+                    document.getElementById(id).value = savedData[id];
+                }
+            });
+
+            return true;
+        }
+
+        function clearSavedData() {
+            if (confirm('¿Estás seguro de que quieres borrar todas tus respuestas guardadas y empezar de nuevo?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                location.reload();
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const hasSavedData = loadSavedAnswers();
+
+            if (hasSavedData) {
+                const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+                const lastSaved = new Date(savedData.lastSaved);
+                const minutesAgo = Math.round((new Date() - lastSaved) / 60000);
+
+                const banner = document.createElement('div');
+                banner.className = 'recovery-banner';
+                banner.innerHTML = `
+                    <strong>✅ Respuestas recuperadas</strong> - Tus respuestas anteriores fueron restauradas (guardadas hace ${minutesAgo} minuto${minutesAgo !== 1 ? 's' : ''}).
+                    <button onclick="clearSavedData()">🗑️ Empezar de nuevo</button>
+                `;
+                document.body.insertBefore(banner, document.body.firstChild);
+            }
+
+            // Set up auto-save listeners
+            document.getElementById('studentName').addEventListener('input', function() {
+                saveAnswer('studentName', this.value);
+            });
+
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) saveAnswer(this.name, this.value);
+                });
+            });
+
+            document.querySelectorAll('input[type="text"], textarea, input[type="number"]').forEach(input => {
+                input.addEventListener('input', function() {
+                    saveAnswer(this.id, this.value);
+                });
+            });
+        });
+
+        // ===== AUDIO PLAYERS =====
+        let audioA = document.getElementById('audioA');
+        let counterA = document.getElementById('counterA');
+        let playsA = 0;
+
+        audioA.addEventListener('play', function() {
+            if (playsA < 2) {
+                playsA++;
+                counterA.textContent = `Plays: ${playsA} / 2`;
+                if (playsA === 2) {
+                    counterA.classList.add('warning');
+                    counterA.textContent = 'Plays: 2 / 2 - LIMIT REACHED';
+                }
+            } else {
+                counterA.textContent = 'Plays: 2 / 2 - LIMIT REACHED';
+            }
+        });
+
+        let audioB = document.getElementById('audioB');
+        let counterB = document.getElementById('counterB');
+        let playsB = 0;
+
+        audioB.addEventListener('play', function() {
+            if (playsB < 2) {
+                playsB++;
+                counterB.textContent = `Plays: ${playsB} / 2`;
+                if (playsB === 2) {
+                    counterB.classList.add('warning');
+                    counterB.textContent = 'Plays: 2 / 2 - LIMIT REACHED';
+                }
+            } else {
+                counterB.textContent = 'Plays: 2 / 2 - LIMIT REACHED';
+            }
+        });
+
+        // ===== WORD COUNTER =====
+        function countWords() {
+            const text = document.getElementById('writingText').value;
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            const count = words.length;
+            const counter = document.getElementById('wordCount');
+
+            counter.textContent = `Words: ${count} / 40 minimum`;
+
+            if (count >= 40) {
+                counter.classList.remove('insufficient');
+                counter.classList.add('sufficient');
+            } else {
+                counter.classList.remove('sufficient');
+                counter.classList.add('insufficient');
+            }
+        }
+
+        // ===== EMAIL FUNCTION =====
+        function sendEmail() {
+            const name = document.getElementById('studentName').value || 'Student';
+            const text = document.getElementById('writingText').value;
+            
+            if (!text.trim()) {
+                alert('⚠️ Please write your text before sending the email.');
+                return;
+            }
+
+            const subject = encodeURIComponent(`Mock Test Writing - ${name}`);
+            const body = encodeURIComponent(`Student: ${name}\n\nMy writing:\n\n${text}`);
+            window.location.href = `mailto:v.moralesm@profesor.duoc.cl?subject=${subject}&body=${body}`;
+        }
+
+        // ===== TEXT NORMALIZATION =====
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .trim()
+                .replace(/[''´`]/g, "'")
+                .replace(/\s+/g, ' ')
+                .replace(/[-]/g, '');
+        }
+
+        // ===== MANUAL SCORE OVERRIDE =====
+        function clearManualScores() {
+            document.getElementById('manualListening').value = '';
+            document.getElementById('manualReading').value = '';
+            document.getElementById('manualWriting').value = '';
+
+            saveAnswer('manualListening', '');
+            saveAnswer('manualReading', '');
+            saveAnswer('manualWriting', '');
+
+            alert('✅ Manual scores cleared. Automatic grading will be used.');
+        }
+
+        // ===== CALCULATE FINAL GRADE =====
+        function calculateFinalGrade() {
+            // Validate student name
+            const studentName = document.getElementById('studentName').value;
+            if (!studentName.trim()) {
+                alert('⚠️ Please enter your full name before calculating your grade.');
+                document.getElementById('studentName').focus();
+                return;
+            }
+
+            // Validate rubric
+            const crit1 = document.querySelector('input[name="crit1"]:checked');
+            const crit2 = document.querySelector('input[name="crit2"]:checked');
+            const crit3 = document.querySelector('input[name="crit3"]:checked');
+            const crit4 = document.querySelector('input[name="crit4"]:checked');
+
+            if (!crit1 || !crit2 || !crit3 || !crit4) {
+                alert('⚠️ Please complete all criteria in the Writing rubric before calculating your grade.');
+                return;
+            }
+
+            // Calculate automatic scores
+            let autoListeningScore = 0;
+            let autoReadingScore = 0;
+            let autoWritingScore = 0;
+
+            // LISTENING PART A (6 points total - 1.5 per question)
+            // Q1: FALSE + correction = 1.5 points
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const corr1 = normalizeText(document.getElementById('correction1').value);
+            if (q1 && q1.value === 'false') {
+                autoListeningScore += 0.5; // Correct T/F
+                if (corr1.includes('one') || corr1.includes('bedroom') || corr1.includes('1')) {
+                    autoListeningScore += 1.0; // Correct correction
+                }
+            }
+
+            // Q2: TRUE = 1.5 points
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2 && q2.value === 'true') {
+                autoListeningScore += 1.5;
+            }
+
+            // Q3: TRUE = 1.5 points
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            if (q3 && q3.value === 'true') {
+                autoListeningScore += 1.5;
+            }
+
+            // Q4: FALSE + correction = 1.5 points
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const corr4 = normalizeText(document.getElementById('correction4').value);
+            if (q4 && q4.value === 'false') {
+                autoListeningScore += 0.5; // Correct T/F
+                if (corr4.includes('850') || corr4.includes('eight')) {
+                    autoListeningScore += 1.0; // Correct correction
+                }
+            }
+
+            // LISTENING PART B (6 points total - 1 point per question)
+            const listeningBAnswers = {
+                lb1: 'b', // At home in Boston
+                lb2: 'd', // Went to bed early
+                lb3: 'b', // Eggs, toast, OJ, fruit
+                lb4: 'c', // Two weeks ago on Monday
+                lb5: 'd', // Three days
+                lb6: 'b'  // Took photos
+            };
+
+            for (let i = 1; i <= 6; i++) {
+                const answer = document.querySelector(`input[name="lb${i}"]:checked`);
+                if (answer && answer.value === listeningBAnswers[`lb${i}`]) {
+                    autoListeningScore += 1;
+                }
+            }
+
+            // READING PART A (6 points total - strict grading, requires complete sentences)
+            // Q1: Routine (2 points) - needs 10+ words with 3+ activities
+            const reading1 = normalizeText(document.getElementById('reading1').value);
+            const words1 = reading1.split(' ').filter(w => w.length > 0).length;
+            const activities1 = ['feed', 'food', 'clean', 'walk', 'answer', 'help', 'questions'].filter(word => reading1.includes(word)).length;
+            
+            if (words1 >= 10 && activities1 >= 3) {
+                autoReadingScore += 2.0; // Complete answer
+            } else if (words1 >= 5 && activities1 >= 2) {
+                autoReadingScore += 1.0; // Partial - mentions some activities
+            } else if (activities1 >= 1) {
+                autoReadingScore += 0.5; // Minimal - just keywords
+            }
+
+            // Q2: Clothing (2 points) - needs 8+ words, both usual AND today
+            const reading2 = normalizeText(document.getElementById('reading2').value);
+            const words2 = reading2.split(' ').filter(w => w.length > 0).length;
+            const hasUsual = reading2.includes('jeans') || reading2.includes('pants') || reading2.includes('usual');
+            const hasToday = reading2.includes('jacket') || reading2.includes('coat') || reading2.includes('today');
+            
+            if (words2 >= 8 && hasUsual && hasToday) {
+                autoReadingScore += 2.0; // Complete - both parts
+            } else if (words2 >= 5 && (hasUsual || hasToday)) {
+                autoReadingScore += 1.0; // Partial - one part
+            } else if (hasUsual || hasToday) {
+                autoReadingScore += 0.5; // Minimal - just keywords
+            }
+
+            // Q3: Current activity (1 point) - needs 3+ words
+            const reading3 = normalizeText(document.getElementById('reading3').value);
+            const words3 = reading3.split(' ').filter(w => w.length > 0).length;
+            const hasActivity = reading3.includes('show') || reading3.includes('answer') || reading3.includes('writing') || 
+                               reading3.includes('helping') || reading3.includes('post');
+            
+            if (words3 >= 3 && hasActivity) {
+                autoReadingScore += 1.0; // Complete sentence
+            } else if (hasActivity) {
+                autoReadingScore += 0.5; // Just keyword
+            }
+
+            // Q4: Reason for not walking (1 point) - needs 5+ words with explanation
+            const reading4 = normalizeText(document.getElementById('reading4').value);
+            const words4 = reading4.split(' ').filter(w => w.length > 0).length;
+            const hasReason = reading4.includes('see') || reading4.includes('need') || reading4.includes('adoption') || 
+                            reading4.includes('process') || reading4.includes('visit');
+            
+            if (words4 >= 5 && hasReason) {
+                autoReadingScore += 1.0; // Complete explanation
+            } else if (hasReason) {
+                autoReadingScore += 0.5; // Just keyword
+            }
+
+            // READING PART B (6 points total - 1 point per question)
+            const readingBAnswers = {
+                rb1: 'b', // Civil engineer
+                rb2: 'c', // By metro
+                rb3: 'c', // Works at restaurant
+                rb4: 'b', // Puerto Montt
+                rb5: 'b', // Two weeks
+                rb6: 'a'  // Soccer and beach
+            };
+
+            for (let i = 1; i <= 6; i++) {
+                const answer = document.querySelector(`input[name="rb${i}"]:checked`);
+                if (answer && answer.value === readingBAnswers[`rb${i}`]) {
+                    autoReadingScore += 1;
+                }
+            }
+
+            // WRITING (from rubric)
+            autoWritingScore = parseFloat(crit1.value) + parseFloat(crit2.value) + 
+                              parseFloat(crit3.value) + parseFloat(crit4.value);
+
+            // Check for manual overrides
+            const manualListening = document.getElementById('manualListening').value;
+            const manualReading = document.getElementById('manualReading').value;
+            const manualWriting = document.getElementById('manualWriting').value;
+
+            const listeningScore = manualListening !== '' ? parseFloat(manualListening) : autoListeningScore;
+            const readingScore = manualReading !== '' ? parseFloat(manualReading) : autoReadingScore;
+            const writingScore = manualWriting !== '' ? parseFloat(manualWriting) : autoWritingScore;
+
+            const usedManual = manualListening !== '' || manualReading !== '' || manualWriting !== '';
+
+            const totalScore = listeningScore + readingScore + writingScore;
+            const percentage = (totalScore / 36) * 100;
+            const finalGrade = calculateChileanGrade(percentage);
+
+            displayResults(listeningScore, readingScore, writingScore, totalScore, percentage, finalGrade, usedManual);
+            generateDetailedFeedback();
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateChileanGrade(percentage) {
+            if (percentage < 60) {
+                return (1.0 + (percentage / 60) * 3.0).toFixed(1);
+            } else {
+                return (4.0 + ((percentage - 60) / 40) * 3.0).toFixed(1);
+            }
+        }
+
+        function displayResults(listening, reading, writing, total, percentage, grade, usedManual) {
+            let manualWarning = '';
+            if (usedManual) {
+                manualWarning = `
+                    <div class="note-banner" style="background: #fff3cd; border-left-color: #ff9800;">
+                        <strong>⚙️ Manual Score Adjustment Applied:</strong> One or more scores were manually adjusted.
+                    </div>
+                `;
+            }
+
+            const resultsHTML = `
+                <div class="results-container">
+                    <h2>📊 Your Results</h2>
+                    ${manualWarning}
+                    <div class="score-summary">
+                        <div class="score-item">
+                            <span class="score-label">Listening:</span>
+                            <span class="score-value">${listening.toFixed(1)} / 12</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Reading:</span>
+                            <span class="score-value">${reading.toFixed(1)} / 12</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Writing:</span>
+                            <span class="score-value">${writing.toFixed(1)} / 12</span>
+                        </div>
+                        <div class="score-total">
+                            <span class="score-label">TOTAL:</span>
+                            <span class="score-value">${total.toFixed(1)} / 36</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Percentage:</span>
+                            <span class="score-value">${percentage.toFixed(1)}%</span>
+                        </div>
+                        <div class="final-grade">
+                            <span class="grade-label">FINAL GRADE:</span>
+                            <span class="grade-value">${grade}</span>
+                        </div>
+                    </div>
+                    <div id="feedbackSection"></div>
+                </div>
+            `;
+
+            document.getElementById('results').innerHTML = resultsHTML;
+        }
+
+        function generateDetailedFeedback() {
+            let html = '<h3 style="color: #667eea; border-bottom: 3px solid #667eea; padding-bottom: 10px; margin: 30px 0 20px 0;">📝 Retroalimentación Detallada</h3>';
+
+            html += '<h4 style="color: #764ba2; margin: 20px 0 15px 0;">🎧 I. Listening - Part A</h4>';
+            
+            html += '<p style="background: #e8f5e9; padding: 15px; border-radius: 5px; border-left: 4px solid #4caf50; margin-bottom: 20px;"><strong>ℹ️ Nota sobre calificación:</strong> En las correcciones de Listening se aceptan errores ortográficos y gramaticales menores. Lo importante es que hayas captado la información correcta del audio.</p>';
+
+            // Listening Part A feedback
+            const listeningAData = [
+                {
+                    q: 'q1',
+                    corr: 'correction1',
+                    text: '1. The man needs a studio apartment.',
+                    correctTF: 'FALSE',
+                    corrections: ['He needs a one-bedroom apartment', 'one-bedroom', 'one bedroom', '1 bedroom'],
+                    explanation: 'En el audio (0:20), el hombre dice claramente "I need a one-bedroom apartment". NO un estudio.',
+                    location: 'Audio segundo 0:18-0:22',
+                    keywords: '"one-bedroom apartment"'
+                },
+                {
+                    q: 'q2',
+                    corr: 'correction2',
+                    text: '2. There is a balcony in the apartment.',
+                    correctTF: 'TRUE',
+                    corrections: [],
+                    explanation: 'En el audio (0:35), la agente confirma "Yes, there is a balcony with a nice view of the park".',
+                    location: 'Audio segundo 0:33-0:37',
+                    keywords: '"balcony", "view of the park"'
+                },
+                {
+                    q: 'q3',
+                    corr: 'correction3',
+                    text: '3. The rent includes water and internet.',
+                    correctTF: 'TRUE',
+                    corrections: [],
+                    explanation: 'En el audio (1:05), la agente dice "The rent includes water and internet, but you pay for electricity".',
+                    location: 'Audio segundo 1:03-1:08',
+                    keywords: '"includes water and internet"'
+                },
+                {
+                    q: 'q4',
+                    corr: 'correction4',
+                    text: '4. The rent is $815 per month.',
+                    correctTF: 'FALSE',
+                    corrections: ['The rent is $850', '$850', '850', 'eight hundred fifty'],
+                    explanation: 'En el audio (0:58), la agente dice "The rent is $850 per month". NO $815.',
+                    location: 'Audio segundo 0:56-1:00',
+                    keywords: '"$850 per month"'
+                }
+            ];
+
+            listeningAData.forEach((item, index) => {
+                const userTF = document.querySelector(`input[name="${item.q}"]:checked`);
+                const userCorr = document.getElementById(item.corr).value;
+                const isCorrect = userTF && userTF.value === item.correctTF.toLowerCase() && 
+                                 (item.correctTF === 'TRUE' || item.corrections.some(c => normalizeText(userCorr).includes(normalizeText(c))));
+
+                html += `<div class="feedback-item ${isCorrect ? 'correct' : 'incorrect'}">`;
+                html += `<p class="feedback-question">${item.text}</p>`;
+                html += `<p>Tu respuesta: ${userTF ? userTF.value.toUpperCase() : 'No respondida'}${item.correctTF === 'FALSE' ? ' - Corrección: "' + userCorr + '"' : ''}</p>`;
+                html += `<p class="correct-answer">✅ Respuesta correcta: <strong>${item.correctTF}</strong>${item.corrections.length > 0 ? ' - Corrección aceptable: "' + item.corrections[0] + '"' : ''}</p>`;
+                html += `<p class="explanation">💡 <strong>Explicación:</strong> ${item.explanation}</p>`;
+                html += `<p style="color: #666; font-size: 0.9em;">📍 <strong>Ubicación:</strong> ${item.location}</p>`;
+                html += `<p style="color: #666; font-size: 0.9em;">🔑 <strong>Palabras clave:</strong> ${item.keywords}</p>`;
+                html += `</div>`;
+            });
+
+            html += '<h4 style="color: #764ba2; margin: 30px 0 15px 0;">🎧 I. Listening - Part B</h4>';
+
+            const listeningBData = [
+                {q: 'lb1', text: '1. Where is Emma now?', correct: 'b', answer: 'b) At home in Boston', explanation: 'Emma dice al inicio "I\'m at home in Boston" (0:08).', location: 'Audio segundo 0:06-0:10'},
+                {q: 'lb2', text: '2. What did they do after arriving yesterday?', correct: 'd', answer: 'd) They went to bed early', explanation: 'Emma menciona "We arrived yesterday afternoon and went to bed early" (0:15).', location: 'Audio segundo 0:12-0:18'},
+                {q: 'lb3', text: '3. What did Emma have for breakfast today?', correct: 'b', answer: 'b) Eggs, toast, orange juice, and fruit', explanation: 'Emma describe "This morning I had eggs, toast, orange juice, and some fruit" (0:25).', location: 'Audio segundo 0:22-0:28'},
+                {q: 'lb4', text: '4. When did they arrive in Lima?', correct: 'c', answer: 'c) Two weeks ago on Monday', explanation: 'Emma dice "We left for Peru two weeks ago and arrived in Lima on Monday" (0:45).', location: 'Audio segundo 0:42-0:48'},
+                {q: 'lb5', text: '5. How long did they stay in Lima?', correct: 'd', answer: 'd) Three days', explanation: 'Emma menciona "We spent three days there" refiriéndose a Lima (1:05).', location: 'Audio segundo 1:02-1:08'},
+                {q: 'lb6', text: '6. What did Sarah do every day in Lima?', correct: 'b', answer: 'b) She took photos', explanation: 'Emma dice "Sarah took photos every day" (1:12).', location: 'Audio segundo 1:10-1:15'}
+            ];
+
+            listeningBData.forEach(item => {
+                const userAnswer = document.querySelector(`input[name="${item.q}"]:checked`);
+                const isCorrect = userAnswer && userAnswer.value === item.correct;
+
+                html += `<div class="feedback-item ${isCorrect ? 'correct' : 'incorrect'}">`;
+                html += `<p class="feedback-question">${item.text}</p>`;
+                html += `<p>Tu respuesta: ${userAnswer ? userAnswer.value + ') ' + userAnswer.parentElement.textContent.trim().substring(3) : 'No respondida'}</p>`;
+                html += `<p class="correct-answer">✅ Respuesta correcta: <strong>${item.answer}</strong></p>`;
+                html += `<p class="explanation">💡 <strong>Explicación:</strong> ${item.explanation}</p>`;
+                html += `<p style="color: #666; font-size: 0.9em;">📍 <strong>Ubicación:</strong> ${item.location}</p>`;
+                html += `</div>`;
+            });
+
+            html += '<h4 style="color: #764ba2; margin: 30px 0 15px 0;">📖 II. Reading - Part A</h4>';
+
+            html += '<p style="background: #fff8e1; padding: 15px; border-radius: 5px; border-left: 4px solid #ff9800; margin-bottom: 20px;"><strong>ℹ️ Nota sobre calificación:</strong> En Reading se es más estricto con la escritura. Se requieren oraciones completas (mínimo 3 palabras) para punto completo.</p>';
+
+            const readingAData = [
+                {
+                    q: 'reading1',
+                    text: '1. Describe Marina\'s typical Saturday routine at the center. Mention at least three activities. (2 points)',
+                    full: ['She gives food to the dogs and cats, cleans their rooms, and takes the dogs for walks', 'gives food, cleans rooms, changes water bowls, walks dogs'],
+                    partial: ['gives food', 'cleans', 'walks dogs'],
+                    explanation: 'El texto dice: "I usually start by giving food to the dogs and cats. Then I clean their rooms and change their water bowls. After that, I take the dogs for walks in the park."'
+                },
+                {
+                    q: 'reading2',
+                    text: '2. How is Marina\'s appearance different today? Explain what she usually wears and what she\'s wearing now. (2 points)',
+                    full: ['Usually she wears jeans and t-shirt, today she\'s wearing a green jacket', 'regular jeans and t-shirt, now special green jacket'],
+                    partial: ['jeans', 'jacket', 'green'],
+                    explanation: 'El texto dice: "I\'m not wearing my regular jeans and t-shirt. Today I\'m wearing the center\'s special green jacket with our name on it."'
+                },
+                {
+                    q: 'reading3',
+                    text: '3. What is Marina doing right now at 2 PM? (1 point)',
+                    full: ['showing animals to families', 'answering questions about pets', 'writing information on papers'],
+                    partial: ['showing', 'answering', 'adoption'],
+                    explanation: 'El texto dice: "I\'m showing the animals to families who want to take them home. I\'m answering questions about the pets and writing information on papers."'
+                },
+                {
+                    q: 'reading4',
+                    text: '4. Why isn\'t Marina walking the dogs in the park today? (1 point)',
+                    full: ['because they need all the animals at the center for people to see', 'need animals there for adoption day'],
+                    partial: ['need', 'see', 'adoption'],
+                    explanation: 'El texto dice: "I\'m not walking the dogs in the park today because we need all the animals here for people to see."'
+                }
+            ];
+
+            readingAData.forEach(item => {
+                const userAnswer = document.getElementById(item.q).value;
+                const words = userAnswer.trim().split(/\s+/).filter(w => w.length > 0).length;
+                const hasContent = item.full.some(f => normalizeText(userAnswer).includes(normalizeText(f))) || 
+                                  item.partial.some(p => normalizeText(userAnswer).includes(normalizeText(p)));
+
+                html += `<div class="feedback-item ${hasContent ? 'partial' : 'incorrect'}">`;
+                html += `<p class="feedback-question">${item.text}</p>`;
+                html += `<p>Tu respuesta: "${userAnswer || 'No respondida'}" (${words} palabras)</p>`;
+                html += `<p class="correct-answer">✅ Respuesta completa (ejemplo): "${item.full[0]}"</p>`;
+                html += `<p class="explanation">💡 <strong>Explicación:</strong> ${item.explanation}</p>`;
+                html += `</div>`;
+            });
+
+            html += '<h4 style="color: #764ba2; margin: 30px 0 15px 0;">📖 II. Reading - Part B</h4>';
+
+            const readingBData = [
+                {q: 'rb1', text: '1. What is Carlos\'s career goal?', correct: 'b', answer: 'b) To be a civil engineer', explanation: 'El texto dice: "He studies engineering because he wants to be a civil engineer."'},
+                {q: 'rb2', text: '2. How does Carlos travel to the university?', correct: 'c', answer: 'c) By metro', explanation: 'El texto dice: "He takes the metro to the university. The trip takes 45 minutes."'},
+                {q: 'rb3', text: '3. What does Carlos do on Saturday mornings?', correct: 'c', answer: 'c) He works at his uncle\'s restaurant', explanation: 'El texto dice: "On Saturdays, he works at his uncle\'s restaurant in the city center."'},
+                {q: 'rb4', text: '4. Where did Carlos go on vacation last summer?', correct: 'b', answer: 'b) To Puerto Montt in the south of Chile', explanation: 'El texto dice: "They traveled to the south of Chile for two weeks. They visited Puerto Montt."'},
+                {q: 'rb5', text: '5. How long was Carlos\'s vacation?', correct: 'b', answer: 'b) Two weeks', explanation: 'El texto dice: "They traveled to the south of Chile for two weeks."'},
+                {q: 'rb6', text: '6. What does Carlos love doing in his free time?', correct: 'a', answer: 'a) Playing soccer and going to the beach', explanation: 'El texto dice: "In his free time, Carlos loves two things: playing soccer with his friends and going to the beach."'}
+            ];
+
+            readingBData.forEach(item => {
+                const userAnswer = document.querySelector(`input[name="${item.q}"]:checked`);
+                const isCorrect = userAnswer && userAnswer.value === item.correct;
+
+                html += `<div class="feedback-item ${isCorrect ? 'correct' : 'incorrect'}">`;
+                html += `<p class="feedback-question">${item.text}</p>`;
+                html += `<p>Tu respuesta: ${userAnswer ? userAnswer.value + ') ' + userAnswer.parentElement.textContent.trim().substring(3) : 'No respondida'}</p>`;
+                html += `<p class="correct-answer">✅ Respuesta correcta: <strong>${item.answer}</strong></p>`;
+                html += `<p class="explanation">💡 <strong>Explicación:</strong> ${item.explanation}</p>`;
+                html += `</div>`;
+            });
+
+            html += '<div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin-top: 30px;">';
+            html += '<h4 style="color: #1976d2;">💡 Consejos para Mejorar</h4>';
+            html += '<ul style="margin-left: 20px; line-height: 1.8;">';
+            html += '<li><strong>Listening:</strong> Lee las preguntas ANTES de escuchar el audio. Así sabes qué información buscar.</li>';
+            html += '<li><strong>True/False:</strong> Si es falso, tu corrección debe dar la información CORRECTA, no solo decir que está mal.</li>';
+            html += '<li><strong>Reading Part A:</strong> Escribe oraciones completas con sujeto y verbo. Respuestas de una sola palabra no son suficientes.</li>';
+            html += '<li><strong>Reading Part B:</strong> Lee TODO el texto antes de responder. Las respuestas están en diferentes párrafos.</li>';
+            html += '<li><strong>Writing:</strong> Revisa tu gramática (especialmente pasado simple) y ortografía antes de finalizar.</li>';
+            html += '</ul>';
+            html += '</div>';
+
+            document.getElementById('feedbackSection').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
